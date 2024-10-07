@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comic website template</title>
+    <title>Light Problem website sketch</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,30 +12,68 @@
 
     <!-- Menu -->
     <div class="menu">
-
         <!-- Still have not decided what the button does. -->
-        <button>A</button>
-        <button>B</button>
-        <button>C</button>
-        <button>D</button>
-        <button>E</button>
-
+        <button onclick="location.href='#initial'">Title</button>   <!-- Help gotten from https://stackoverflow.com/questions/2906582/how-do-i-create-an-html-button-that-acts-like-a-link -->
+        <button onclick="location.href='#summary'">Summary</button>
+        <button onclick="location.href='#comic'">Comic</button>
     </div>
     
-    <!-- Also, not sure if this goes here. -->
-    <div class="comic">
-        <h2>Comic website</h2>
+
+
+    <!-- The first page that is seen. -->
+    <div id="initial" class="initial_page">
+        
+        <!-- Brief introduction to comic -->
+        <div class="initial_page_info">
+            <h2>Light Problem</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, repellendus vel, quasi quod aliquid voluptatem corporis iure temporibus harum a reprehenderit doloremque sint veritatis asperiores neque voluptatum beatae distinctio laboriosam.
+            </p>
+            <button onclick="location.href='#comic'">Read Chapter #1</button>
+        </div>
+
+        <!-- Comic main image -->
+        <div class="initial_page_image">
+            <img src="media/placeholder.png" alt="Placeholder">
+        </div>
+
     </div>    
 
-    <div>
+
+    <!-- Summary page -->    
+    <div id="summary" class="summary_page">
+
+        <h1>Light Problem</h1>
+
+        <!-- Text -->
+        <div class="summary_page_info">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, repellendus vel, quasi quod aliquid voluptatem corporis iure temporibus harum a reprehenderit doloremque sint veritatis asperiores neque voluptatum beatae distinctio laboriosam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Error aperiam saepe sint recusandae dolores mollitia consequuntur esse autem maxime maiores fugit consequatur voluptates ducimus possimus voluptate illo, labore quod voluptatem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam deserunt beatae necessitatibus in asperiores totam ullam sapiente praesentium repudiandae velit enim, quia quo, laudantium labore, atque eveniet reprehenderit magni. Non!
+            </p>
+        </div>
+
+        <!-- Comic featured images -->
+        <div class="summary_page_image">
+            <div>
+                <img src="media/placeholder.png" alt="Placeholder" style="height: 700px; width: 260px; padding: 35px;">
+            </div>
+
+            <div>
+                <img src="media/placeholder.png" alt="Placeholder" style="height: 700px; width: 200px;">
+            </div>
+        </div>
+
+            
+        </div>
 
     </div>
 
 
-    <p>Description.</p>
+    <!-- Comic page and buttons to interact. -->    
+    <div id="comic" class="comic_page">
+        <button> <-- </button>
+        <div style="background-color: rgb(0, 0, 0); height: 800px; width: 800px; color: white;">Interactive comic here</div>
+        <button> --> </button>
+    </div>
 
-    <h2>Comic panels</h2>
-    <p>Panels here</p>
 
 </body>
 </html>

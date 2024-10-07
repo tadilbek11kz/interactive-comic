@@ -1,16 +1,213 @@
 /* Aesthetic. */
 
+html, body{
+    
+    /* To generate the parallax effect. */
+    height: 100%;
+    margin: 0;
 
+    /* Placeholder font */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+
+    /* Smooth scrolling. https://www.w3schools.com/howto/howto_css_smooth_scroll.asp#section2*/
+    scroll-behavior: smooth;
+}
 
 h2 {
-    font-family: Arial, Helvetica, sans-serif;
     color: black;
 }
 
+/* Menu */
+
 .menu{
-    position: fixed;
-    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: stretch;
+
     background-color: black;
     color: white;
-    display: flex;
+
+    height: 50px;
+
+
+    /* Fixed position. https://stackoverflow.com/questions/29036231/how-can-i-have-a-position-fixed-behaviour-for-a-flexbox-sized-element */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    /* Take absolute priority over everything in the website. */
+    z-index: 100;
 }
+
+
+/* Menu buttons */
+
+.menu button{
+    height:100%;
+    width: 15%;
+}
+
+
+/* a. Initial Page */
+/* Note: I used this website to get a bit of help with the flex: https://flexbox.help/ */
+
+.initial_page{
+
+    /* Placeholder background image taken from: https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.canva.com%2Fcomic-strips%2Ftemplates%2F&psig=AOvVaw3Z0VIKdyhHG1IgKQehsm01&ust=1728344427014000&source=images&cd=vfe&opi=89978449&ved=0CBcQjhxqFwoTCJDr2PD2-ogDFQAAAAAdAAAAABAE */
+    background-image: url("media/placeholderbanner.webp");
+
+    /* Parallax effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: stretch;
+
+
+    height: 800px; /* Fixed value, I would not recommend keeping it like this. */
+}
+
+/* Information box */
+.initial_page_info{
+    background-color: aliceblue;
+    height: 74%;
+    width: 44%;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
+
+    padding-left: 10%;
+    padding-right: 10%; 
+}
+
+.initial_page_info h2{
+    text-align: center;
+    font-size: 50px;
+    background-color: rgb(204, 201, 201);
+}
+
+.initial_page_info p{
+
+    bottom: 30px;
+    background-color: rgb(204, 201, 201);
+}
+
+.initial_page_info button{
+    border-radius: 30px;
+    height: 60px;
+}
+
+/* Image box */
+.initial_page_image img{
+    height: 600px;
+    background-color: aliceblue;
+}
+
+
+/* b. Summary Page */
+.summary_page{
+
+    /* Parallax effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: stretch;
+
+    background-color: rgb(206, 192, 192);
+
+    height: 1100px; /* Fixed value, I would not recommend keeping it like this. */
+}
+
+
+/* Title (Might be coded wrong due to using absolute)*/
+.summary_page h1{
+    position: absolute;
+    bottom: -2%;
+    font-size: 50px;
+}
+
+/* Information box */
+.summary_page_info{
+    width: 44%;
+    font-size: 16px;
+
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap-reverse;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+ 
+}
+
+/* Image box (The sizes of each image is set on the html file. */
+.summary_page_image{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+}
+
+
+/* c. Comic Page */
+
+.comic_page{
+
+    background-image: url("media/placeholderbanner2.jpg");  /* Placeholder image obtained from: https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Fvector-art%2F7848347-pop-art-comic-background&psig=AOvVaw3QlY7XA9RJjh8h6sRZdrC1&ust=1728347089060000&source=images&cd=vfe&opi=89978449&ved=0CBcQjhxqFwoTCOj_wuuA-4gDFQAAAAAdAAAAABAK */
+    background-color: black;
+
+    /* Parallax effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 1100px;
+
+    
+    /* Flex parameters */
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+
+}
+
+
+.comic_page button{
+    background-color: black;
+    height: 800px;
+    width: 6%;
+    color: white;
+}
+
+
+/* d. Credits */
