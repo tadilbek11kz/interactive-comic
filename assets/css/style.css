@@ -1,0 +1,92 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+
+.container {
+    height: 100%;
+    background-image: url('../img/cover_light.jpg');
+    background-color: #EFD694;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.dark-mode {
+    background-image: url('../img/cover_dark.jpg');
+    background-color: #272B68;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+.mode-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 10px;
+    border: #272B68 solid 2px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    stroke: #272B68;
+    stroke-width: 1;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    fill: none;
+    cursor: pointer;
+}
+
+.mode-icon:hover {
+    background-color: #333;
+}
+
+.dark {
+    border: #EFD694 solid 2px;
+    stroke: #EFD694;
+}
+
+.dark:hover {
+    background-color: #f3f3f3;
+}
+
+.btn {
+    position: absolute;
+    bottom: 40px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #ffffff;
+    color: #333;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #f3f3f3;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1.4rem;
+    }
+}
