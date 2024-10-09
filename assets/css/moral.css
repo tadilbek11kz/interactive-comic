@@ -1,0 +1,116 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-y: hidden;
+}
+
+
+.container {
+    height: 100%;
+    background-image: url('../img/cover_light.jpg');
+    background-color: #EFD694;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: flex-start;
+}
+
+.container_images{
+    height: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: center;
+    padding-left: 4%;
+}
+
+.container_images img{
+    width: 23%;
+}
+
+.dark-mode {
+    background-image: url('../img/cover_dark.jpg');
+    background-color: #272B68;
+}
+
+h1 {
+    -webkit-text-stroke: 0.6px;
+    -webkit-text-stroke-color: #EFD694;
+    font-size: 2rem;
+    padding-right: 80px;
+    margin-bottom: 2rem;
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+}
+
+
+.mode-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 10px;
+    border: #272B68 solid 2px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    stroke: #272B68;
+    stroke-width: 1;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    fill: none;
+    cursor: pointer;
+}
+
+.mode-icon:hover {
+    background-color: #333;
+}
+
+.dark {
+    border: #EFD694 solid 2px;
+    stroke: #EFD694;
+}
+
+.dark:hover {
+    background-color: #f3f3f3;
+}
+
+.btn {
+    position: absolute;
+    margin-left: 45%; /* 50% of your actual height */
+    bottom: 20px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #ffffff;
+    color: #333;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #f3f3f3;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    .btn {
+        margin-left: 35%;
+        padding: 10px 20px;
+        font-size: 1.4rem;
+    }
+
+    .container_images img{
+        width: 35%;
+    }
+}
