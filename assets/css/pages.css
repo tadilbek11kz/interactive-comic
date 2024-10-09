@@ -1,0 +1,126 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    height: 100%;
+    background-color: #EFD694;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.dark-mode {
+    background-color: #272B68;
+}
+
+.carousel-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.carousel .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+    /* Allows clicking through the overlay */
+}
+
+.carousel .matches {
+    z-index: 2;
+}
+
+.carousel .torch {
+    z-index: 3;
+}
+
+.active {
+    display: block;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.mode-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 10px;
+    border: #272B68 solid 2px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    stroke: #272B68;
+    stroke-width: 1;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    fill: none;
+    cursor: pointer;
+}
+
+.mode-icon:hover {
+    background-color: #7678a0;
+}
+
+.dark {
+    border: #EFD694 solid 2px;
+    stroke: #EFD694;
+}
+
+.dark:hover {
+    background-color: #f8b50d;
+}
+
+
+
+@media (max-width: 768px) {
+    .carousel-container {
+        width: 90%;
+    }
+
+    .arrow {
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+}

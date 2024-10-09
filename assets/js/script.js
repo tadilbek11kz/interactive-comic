@@ -1,6 +1,7 @@
-// Get references to the button and container elements
+// Get references to the toggle and container elements
 const toggle = document.getElementById('mode-toggle');
 const container = document.getElementById('cover-page');
+const readNow = document.getElementById('read-now');
 
 // Function to toggle mode and change background image
 function toggleMode() {
@@ -8,8 +9,10 @@ function toggleMode() {
     toggle.classList.toggle("dark");
 }
 
-// Add click event listener to the button
+// Click event listener for the button
 toggle.addEventListener('click', toggleMode);
+readNow.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = "pages.html";
+})
 
-// Set initial background image
-container.style.backgroundImage = lightModeImage;
