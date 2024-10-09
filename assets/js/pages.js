@@ -12,16 +12,6 @@ const images = [
     { src: "assets/img/frame_2.jpg", alt: "Frame 2" },
     { src: "assets/img/frame_3.jpg", alt: "Frame 3" },
 
-    { src: "assets/img/frame_4.1.jpg", alt: "Frame 4", id: "matches-frame" },
-    { src: "assets/img/frame_5.1.jpg", alt: "Frame 5", id: "matches-frame" },
-    { src: "assets/img/frame_6.1.jpg", alt: "Frame 6", id: "matches-frame" },
-    { src: "assets/img/frame_7.1.jpg", alt: "Frame 7", id: "matches-frame" },
-
-    { src: "assets/img/frame_4.2.jpg", alt: "Frame 4", id: "torch-frame" },
-    { src: "assets/img/frame_5.2.jpg", alt: "Frame 5", id: "torch-frame" },
-    { src: "assets/img/frame_6.2.jpg", alt: "Frame 6", id: "torch-frame" },
-    { src: "assets/img/frame_7.2.jpg", alt: "Frame 7", id: "torch-frame" },
-
     { src: "assets/img/frame_8.jpg", alt: "Frame 8" },
     { src: "assets/img/frame_9.jpg", alt: "Frame 9" },
     { src: "assets/img/frame_10.jpg", alt: "Frame 10" },
@@ -29,22 +19,19 @@ const images = [
     { src: "assets/img/frame_12.jpg", alt: "Frame 12" },
 ];
 
-if (selectedObject === "matches") {
-    images.push(
+const matchesFrames = [
+    { src: "assets/img/frame_4.1.jpg", alt: "Frame 4" },
+    { src: "assets/img/frame_5.1.jpg", alt: "Frame 5" },
+    { src: "assets/img/frame_6.1.jpg", alt: "Frame 6" },
+    { src: "assets/img/frame_7.1.jpg", alt: "Frame 7" },
+]
 
-    );
-} else {
-    images.push(
-
-    );
-}
-
-images.push(
-
-)
-
-
-
+const torchFrames = [
+    { src: "assets/img/frame_4.2.jpg", alt: "Frame 4" },
+    { src: "assets/img/frame_5.2.jpg", alt: "Frame 5" },
+    { src: "assets/img/frame_6.2.jpg", alt: "Frame 6" },
+    { src: "assets/img/frame_7.2.jpg", alt: "Frame 7" },
+]
 
 let currentIndex = 0;
 
@@ -58,26 +45,10 @@ function loadImages() {
             img.alt = image.alt;
             img.className = 'carousel-image';
             const torch = document.createElement('img');
-            torch.addEventListener('click', (e) => {
-                e.preventDefault();
-                const matchesImg = document.querySelectorAll('.matches-frame');
-                matchesImg.forEach(img => {
-                    img.className = '';
-                });
-                nextBtn.style.display = 'block';
-            });
             torch.src = "assets/img/torch-2.png";
             torch.alt = "Torch";
             torch.className = 'overlay torch';
             const matches = document.createElement('img');
-            matches.addEventListener('click', (e) => {
-                e.preventDefault();
-                const torchImg = document.querySelectorAll('.torch-frame');
-                torchImg.forEach(img => {
-                    img.className = '';
-                });
-                nextBtn.style.display = 'block';
-            });
             matches.src = "assets/img/matches-2.png";
             matches.alt = "Matches";
             matches.className = 'overlay matches';
@@ -95,7 +66,6 @@ function loadImages() {
         img.className = index === 0 ? 'carousel-image active' : 'carousel-image';
         carouselImages.appendChild(img);
     });
-    nextBtn.style.display = currentIndex === images.length - 1 ? 'none' : 'block';
     prevBtn.style.display = currentIndex === 0 ? 'none' : 'block';
 }
 
@@ -105,7 +75,7 @@ function showImage(index) {
     imgs[index].classList.add('active');
     currentIndex = index;
 
-    nextBtn.style.display = currentIndex === images.length - 1 || currentIndex === 2 ? 'none' : 'block';
+    nextBtn.style.display = currentIndex === (images.length + 4) - 1 || currentIndex === 2 ? 'none' : 'block';
     prevBtn.style.display = currentIndex === 0 ? 'none' : 'block';
 
     const overlays = document.querySelectorAll('.overlay');
@@ -115,18 +85,45 @@ function showImage(index) {
 }
 
 function nextImage() {
-    let index = (currentIndex + 1) % images.length;
+    let index = (currentIndex + 1)
     showImage(index);
 }
 
 function prevImage() {
     let index = currentIndex - 1;
-    if (index < 0) index = images.length - 1;
     showImage(index);
 }
 
 // Load images when the page loads
-document.addEventListener('DOMContentLoaded', loadImages);
+document.addEventListener('DOMContentLoaded', () => {
+    loadImages();
+    const torch = document.querySelector('.torch');
+    const matches = document.querySelector('.matches');
+    const selection = document.querySelector('.selection');
+
+    torch.addEventListener('click', (e) => {
+        e.preventDefault();
+        torchFrames.reverse().forEach((frame, index) => {
+            const img = document.createElement('img');
+            img.src = frame.src;
+            img.alt = frame.alt;
+            img.className = 'carousel-image';
+            selection.insertAdjacentElement('afterend', img);
+        });
+        nextBtn.style.display = 'block';
+    });
+    matches.addEventListener('click', (e) => {
+        e.preventDefault();
+        matchesFrames.reverse().forEach((frame, index) => {
+            const img = document.createElement('img');
+            img.src = frame.src;
+            img.alt = frame.alt;
+            img.className = 'carousel-image';
+            selection.insertAdjacentElement('afterend', img);
+        });
+        nextBtn.style.display = 'block';
+    });
+});
 
 // Event listeners for next and previous buttons
 nextBtn.addEventListener('click', (e) => {
