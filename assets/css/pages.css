@@ -67,6 +67,28 @@ html {
     display: block;
 }
 
+
+/* Button attributes taken from style.css */
+
+.btn {
+    position: absolute;
+    margin-left: 42%; /* 50% of your actual height */
+    bottom: 20px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #ffffff;
+    color: #333;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #f3f3f3;
+}
+
+
+
 .arrow {
     position: absolute;
     top: 50%;
@@ -143,5 +165,9 @@ html {
     .arrow {
         padding: 8px 12px;
         font-size: 16px;
+    }
+
+    .btn{
+        margin-left: 23%;
     }
 }

@@ -15,4 +15,3 @@ readNow.addEventListener('click', (e) => {
     e.preventDefault();
     window.location.href = "pages.html";
 })
-
