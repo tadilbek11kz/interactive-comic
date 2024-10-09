@@ -2,11 +2,12 @@
 // Get references to the toggle and container elements
 const toggle = document.getElementById('mode-toggle');
 const container = document.getElementById('main-page');
+const moral = document.getElementById('moral');
 
 const carouselImages = document.getElementById('carousel-images');
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
-const selectedObject = "torch";
+let selectedObject = "";
 const images = [
     { src: "assets/img/frame_1.jpg", alt: "Frame 1" },
     { src: "assets/img/frame_2.jpg", alt: "Frame 2" },
@@ -34,6 +35,11 @@ const torchFrames = [
 ]
 
 let currentIndex = 0;
+
+const brushingTeeth = document.getElementById('brushing-teeth');
+const flowingWater = document.getElementById('flowing-water');
+const magicWand = document.getElementById('magic-wand');
+const matchStrike = document.getElementById('match-strike');
 
 function loadImages() {
     images.forEach((image, index) => {
@@ -63,6 +69,7 @@ function loadImages() {
         img.src = image.src;
         img.alt = image.alt;
         img.id = image.id;
+        if (index === 0) brushingTeeth.play();
         img.className = index === 0 ? 'carousel-image active' : 'carousel-image';
         carouselImages.appendChild(img);
     });
@@ -75,6 +82,28 @@ function showImage(index) {
     imgs[index].classList.add('active');
     currentIndex = index;
 
+    console.log(selectedObject, currentIndex)
+
+
+    if (selectedObject === "matches") {
+        if (currentIndex === 3) {
+            matchStrike.play();
+        } else if (currentIndex === 6) {
+            flowingWater.play();
+        }
+    } else if (selectedObject === "torch") {
+        if (currentIndex === 4) {
+            flowingWater.play();
+        } else if (currentIndex === 5) {
+            matchStrike.play();
+        }
+    }
+
+    if (currentIndex === 10 || currentIndex === 11) {
+        magicWand.play();
+    }
+
+    moral.style.display = currentIndex === (images.length + 4) - 1 ? 'block' : 'none';
     nextBtn.style.display = currentIndex === (images.length + 4) - 1 || currentIndex === 2 ? 'none' : 'block';
     prevBtn.style.display = currentIndex === 0 ? 'none' : 'block';
 
@@ -86,11 +115,19 @@ function showImage(index) {
 
 function nextImage() {
     let index = (currentIndex + 1)
+    brushingTeeth.pause();
+    flowingWater.pause();
+    magicWand.pause();
+    matchStrike.pause();
     showImage(index);
 }
 
 function prevImage() {
     let index = currentIndex - 1;
+    brushingTeeth.pause();
+    flowingWater.pause();
+    magicWand.pause();
+    matchStrike.pause();
     showImage(index);
 }
 
@@ -111,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             selection.insertAdjacentElement('afterend', img);
         });
         nextBtn.style.display = 'block';
+        selectedObject = "torch";
     });
     matches.addEventListener('click', (e) => {
         e.preventDefault();
@@ -122,6 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             selection.insertAdjacentElement('afterend', img);
         });
         nextBtn.style.display = 'block';
+        selectedObject = "matches";
     });
 });
 
@@ -142,4 +181,9 @@ toggle.addEventListener('click', (e) => {
     container.classList.toggle("dark-mode");
     toggle.classList.toggle("dark");
 
+});
+
+moral.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = "moral.html";
 });

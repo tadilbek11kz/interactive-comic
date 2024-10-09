@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
 body,
 html {
     height: 100%;
@@ -25,13 +30,6 @@ html {
     background-image: url('../img/cover_dark.jpg');
     background-color: #272B68;
 }
-
-h1 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
 
 .mode-icon {
     position: absolute;
@@ -80,9 +78,6 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
 
     .btn {
         padding: 10px 20px;
