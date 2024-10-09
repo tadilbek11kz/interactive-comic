@@ -1,6 +1,12 @@
+@font-face {
+    font-family: Bakso;
+    src: url(../fonts/BaksoSapi.otf);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
+    font-family: Bakso;
 }
 
 body,
@@ -66,14 +72,15 @@ html {
     font-size: 1.6rem;
     font-style: italic;
     text-align: center;
+    color: #272B68;
 }
 
 .btn {
     bottom: 40px;
     padding: 15px 30px;
     font-size: 1.2rem;
-    background-color: #ffffff;
-    color: #333;
+    background-color: #7e7fbe;
+    color: #EFD694;
     border: none;
     border-radius: 25px;
     margin: 20px;
@@ -81,7 +88,7 @@ html {
 }
 
 .btn:hover {
-    background-color: #f3f3f3;
+    background-color: #4e5392;
 }
 
 .mode-icon {
@@ -108,6 +115,19 @@ html {
 .dark {
     border: #EFD694 solid 2px;
     stroke: #EFD694;
+}
+
+.dark-quote {
+    color: #EFD694;
+}
+
+.dark-button {
+    background-color: #efd794;
+    color: #272b68;
+}
+
+.dark-button:hover {
+    background-color: #d1bc86;
 }
 
 .dark:hover {

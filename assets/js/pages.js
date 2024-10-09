@@ -181,6 +181,8 @@ toggle.addEventListener('click', (e) => {
     e.preventDefault();
     container.classList.toggle("dark-mode");
     toggle.classList.toggle("dark");
+    moral.classList.toggle("dark-button");
+    audioToggle.classList.toggle("dark");
 
 });
 

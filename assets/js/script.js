@@ -7,6 +7,7 @@ const readNow = document.getElementById('read-now');
 function toggleMode() {
     container.classList.toggle("dark-mode");
     toggle.classList.toggle("dark");
+    readNow.classList.toggle("dark-button");
 }
 
 // Click event listener for the button
